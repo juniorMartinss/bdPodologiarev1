@@ -13,3 +13,5 @@ def inserir(nome, salario, departamento):
     except Exception as erro:
         return erro
 
+def
+
