@@ -2,6 +2,8 @@ import operacoes
 import this
 
 this.opcao = -1
+this.codigo = 0
+this.campo = ""
 
 
 def menu():
@@ -37,7 +39,7 @@ def operacoes():
             valetransporte = input()
             print('Comentários, observarções, etc. Digite aqui!')
             obs = input()
-            operacoes.inserir(nome, salario, departamento, telefone, dataDeNascimento, endereco, cep, valetransporte, obs)
+            operacoes.inserirColaborador(nome, salario, departamento, telefone, dataDeNascimento, endereco, cep, valetransporte, obs)
         elif this.opcao == 2:
             print('Qual o CPF do paciente(a): ')
             cpf = input()
@@ -51,7 +53,7 @@ def operacoes():
             endereco = input()
             print('Qual o CEP do paciente(a): ')
             cep = input()
-            operacoes.inserir(cpf, nome, dataDeNascimento, telefone, endereco, cep)
+            operacoes.inserirPaciente(cpf, nome, dataDeNascimento, telefone, endereco, cep)
         elif this.opcao == 3:
             print('Infome o produto: ')
             produto = input()
@@ -67,12 +69,12 @@ def operacoes():
             origem = input()
             print('Comentários, observarções, etc. Digite aqui!')
             obs = input()
-            operacoes.inserir(produto, valor, quantidade, fabricante, fornecedor, origem, obs)
+            operacoes.inserirEstoque(produto, valor, quantidade, fabricante, fornecedor, origem, obs)
         elif this.opcao == 4:
             print('Informe os procedimentos para cadastrar: ')
             procedimento = input()
             print('Informe do procedimento: ')
             valor = input()
-            operacoes.inserir(procedimento, valor)
+            operacoes.inserirProcedimentos(procedimento, valor)
         else:
             print('Opção escolhida não é válida!')
