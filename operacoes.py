@@ -24,12 +24,14 @@ def tratarData(texto):
 
 def inserirPaciente(cpf, nome, datadeNascimento, telefone, endereco, cep):
     try:
-        sql = "insert into paciente(codigo, cpf, nome, dataDeNascimento, telefone, endereco, cep) values('', '{}', '{}', '{}', '{}', '{}', '{}', '{})".format(cpf, nome, datadeNascimento, telefone, endereco, cep)
+        sql = "insert into paciente(cpf, nome, dataDeNascimento, telefone, endereco, cep) values('{}', '{}', '{}', '{}', '{}', '{}')".format(cpf, nome, datadeNascimento, telefone, endereco, cep)
         con.execute(sql)
         db_connection.commit()  # Inserção de dado no DB
         print("{} Inserido!".format(con.rowcount))
     except Exception as erro:
         return erro
+
+
 
 def inserirEstoque(produto, valor, quantidade, fabricante, fornecedor, origem, obs):
     try:

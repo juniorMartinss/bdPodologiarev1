@@ -12,12 +12,11 @@ def menu():
           '2. Cadastrar Paciente\n' +
           '3. Cadastrar Estoque de Produtos(R$)\n' +
           '4. Procedimentos (R$)\n' +
-          '5. Consultar\n' +
           '0. Sair\n')
     this.opcao = int(input())
 
 
-def operacoes():
+def operar():
     while (this.opcao != 0):
         menu()
         if this.opcao == 1:
@@ -76,6 +75,5 @@ def operacoes():
             print('Informe do procedimento: ')
             valor = input()
             operacoes.inserirProcedimentos(procedimento, valor)
-
         else:
             print('Opção escolhida não é válida!')

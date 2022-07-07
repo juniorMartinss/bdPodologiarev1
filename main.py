@@ -3,4 +3,4 @@ import operacoes
 import Menu
 
 if __name__ == "__main__":
-    Menu.operacoes()
+    Menu.operar()
