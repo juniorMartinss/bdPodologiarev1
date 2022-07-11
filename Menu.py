@@ -72,8 +72,8 @@ def operar():
         elif this.opcao == 4:
             print('Informe os procedimentos para cadastrar: ')
             procedimento = input()
-            print('Informe do procedimento: ')
+            print('Informe o valor do procedimento: ')
             valor = input()
-            operacoes.inserirProcedimentos(procedimento, valor)
+            operacoes.inserirProcedimento(procedimento, valor)
         else:
             print('Opção escolhida não é válida!')

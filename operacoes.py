@@ -7,7 +7,8 @@ con = db_connection.cursor()
 
 def inserirColaborador(nome, salario, departamento, telefone, dataDeNascimento, endereco, cep, valetransporte, obs):
     try:
-        sql = "insert into colaborador(codigo, nome, salario, departamento, telefone, dataDeNascimento, endereco, cep, valeTransporte, obs) values('', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(nome, salario, departamento, telefone, dataDeNascimento, endereco, cep, valetransporte, obs)
+        date = tratarData(dataDeNascimento)
+        sql = "insert into colaborador(codigo, nome, salario, departamento, telefone, dataDeNascimento, endereco, cep, valeTransporte, obs) values('', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(nome, salario, departamento, telefone, date, endereco, cep, valetransporte, obs)
         con.execute(sql)
         db_connection.commit()  # Inserção de dado no DB
         print("{} Inserido!".format(con.rowcount))
@@ -24,7 +25,8 @@ def tratarData(texto):
 
 def inserirPaciente(cpf, nome, datadeNascimento, telefone, endereco, cep):
     try:
-        sql = "insert into paciente(cpf, nome, dataDeNascimento, telefone, endereco, cep) values('{}', '{}', '{}', '{}', '{}', '{}')".format(cpf, nome, datadeNascimento, telefone, endereco, cep)
+        data = tratarData(datadeNascimento)
+        sql = "insert into paciente(cpf, nome, dateDeNascimento, telefone, endereco, cep) values('{}', '{}', '{}', '{}', '{}', '{}')".format(cpf, nome, data, telefone, endereco, cep)
         con.execute(sql)
         db_connection.commit()  # Inserção de dado no DB
         print("{} Inserido!".format(con.rowcount))
@@ -35,7 +37,7 @@ def inserirPaciente(cpf, nome, datadeNascimento, telefone, endereco, cep):
 
 def inserirEstoque(produto, valor, quantidade, fabricante, fornecedor, origem, obs):
     try:
-        sql = "insert into estoque(codigo, produto, valor, quantidade, fabricante, fornecedor, origem, obs) values('', '{}', '{}', '{}', '{}', '{}', '{}', '{})".format(produto, valor, quantidade, fabricante, fornecedor, origem, obs)
+        sql = "insert into estoque(codigo, produto, valor, quantidade, fabricante, fornecedor, origem, obs) values('', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(produto, valor, quantidade, fabricante, fornecedor, origem, obs)
         con.execute(sql)
         db_connection.commit()  # Inserção de dado no DB
         print("{} Inserido!".format(con.rowcount))
@@ -45,7 +47,7 @@ def inserirEstoque(produto, valor, quantidade, fabricante, fornecedor, origem, o
 
 def inserirProcedimento(procedimento, valor):
     try:
-        sql = "insert into procedimento(codigo, procedimento, valor) values('', '{}', '{}')".format(procedimento, valor)
+        sql = "insert into procedimentos(codigo, procedimento, valor) values('', '{}', '{}')".format(procedimento, valor)
         con.execute(sql)
         db_connection.commit()  # Inserção de dado no DB
         print("{} Inserido!".format(con.rowcount))
